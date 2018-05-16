@@ -1,5 +1,5 @@
 {
-  "name": "new-lib",
+  "name": "serialized-response",
   "version": "1.0.1",
   "main": "lib/index.js",
   "author": "Trung Dinh Quang <trungdq88@gmail.com>",
