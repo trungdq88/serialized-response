@@ -1,6 +1,6 @@
 import humps from 'humps';
 
-export default () => fetchObject =>
+export default ({ camelizeKeys = true } = {}) => fetchObject =>
   Promise.resolve(fetchObject)
     .then(async r => ({
       ok: r.ok,
@@ -8,7 +8,7 @@ export default () => fetchObject =>
       statusText: r.statusText,
       jsonBody: await r.json().catch(_ => null),
     }))
-    .then(humps.camelizeKeys)
+    .then(camelizeKeys ? humps.camelizeKeys : _ => _)
     .catch(error => {
       console.error('fetchObject', fetchObject);
       console.error(error);
